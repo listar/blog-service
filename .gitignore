@@ -1,0 +1,8 @@
+.idea
+pro_binary
+vendor/**
+!vendor/vendor.json
+storage
+pid
+build/*
+config/env.go
