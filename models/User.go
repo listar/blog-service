@@ -4,9 +4,9 @@ import "github.com/jinzhu/gorm"
 
 type User struct {
 	gorm.Model
-	Name   string
-	Avatar string
-	Role int
+	Name     string
+	Avatar   string
+	Role     int
 	Password string
 }
 

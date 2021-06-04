@@ -6,10 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	"log"
-	"qqfav-service/config"
 	"net/http"
 	"os"
 	"os/signal"
+	"qqfav-service/config"
 	"time"
 )
 

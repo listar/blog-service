@@ -7,7 +7,6 @@ import (
 	"qqfav-service/modules/log"
 )
 
-
 // 列表
 func PoetryList(c *gin.Context) {
 	json := make(map[string]interface{}) //注意该结构接受的内容
@@ -33,7 +32,7 @@ func PoetryList(c *gin.Context) {
 		"msg":  "ok",
 		"data": gin.H{
 			"result": Poetry,
-			"total": total.Total,
+			"total":  total.Total,
 		},
 	})
 }
@@ -51,8 +50,7 @@ func PoetryDetail(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code": 100,
 			"msg":  "id param is error",
-			"data": gin.H{
-			},
+			"data": gin.H{},
 		})
 		return
 	}
@@ -77,7 +75,7 @@ func PoetryAction(c *gin.Context) {
 		log.Error(bjerr)
 		return
 	}
-	articeData := m.Poetry{Title: json["Title"].(string), Author: json["Author"].(string), Content: json["Content"].(string), Remark: json["Remark"].(string) }
+	articeData := m.Poetry{Title: json["Title"].(string), Author: json["Author"].(string), Content: json["Content"].(string), Remark: json["Remark"].(string)}
 	if json["id"].(float64) == 0 {
 		m.Model.Create(&articeData)
 	} else {
@@ -88,11 +86,9 @@ func PoetryAction(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"code": 0,
 		"msg":  "ok",
-		"data": gin.H{
-		},
+		"data": gin.H{},
 	})
 }
-
 
 // 删除
 func PoetryDel(c *gin.Context) {
@@ -107,8 +103,7 @@ func PoetryDel(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code": 100,
 			"msg":  "id param is error",
-			"data": gin.H{
-			},
+			"data": gin.H{},
 		})
 		return
 	}

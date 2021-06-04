@@ -14,9 +14,10 @@ func RegisterApiRouter(router *gin.Engine) {
 
 	api := router.Group("/api")
 	api.GET("/index", controllers.IndexApi)
-	api.POST("/login/account", controllers.Account)
-	//api.GET("/cookie/set/:userid", controllers.CookieSetExample)
+
 	// qqfav
+	api.POST("/login/account", controllers.Account)
+	api.GET("/currentUser", controllers.CurrentUser)
 	api.POST("/article/list", controllers.ArticleList)
 	api.POST("/article/detail", controllers.ArticleDetail)
 
@@ -26,7 +27,7 @@ func RegisterApiRouter(router *gin.Engine) {
 	api.POST("/saying/list", controllers.SayingList)
 	api.POST("/saying/detail", controllers.SayingDetail)
 
-
+	//api.GET("/cookie/set/:userid", controllers.CookieSetExample)
 	//// cookie auth middleware
 	//api.Use(auth.Middleware(auth.CookieAuthDriverKey))
 	//{
@@ -53,6 +54,5 @@ func RegisterApiRouter(router *gin.Engine) {
 
 		//jwtApi.GET("/jwt/get", controllers.JwtGetExample)
 	}
-
 
 }

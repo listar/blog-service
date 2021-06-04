@@ -2,8 +2,8 @@ package auth
 
 import (
 	"github.com/gin-gonic/gin"
-	"qqfav-service/filters/auth/drivers"
 	"net/http"
+	"qqfav-service/filters/auth/drivers"
 )
 
 const (

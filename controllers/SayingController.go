@@ -32,7 +32,7 @@ func SayingList(c *gin.Context) {
 		"msg":  "ok",
 		"data": gin.H{
 			"result": Saying,
-			"total": total.Total,
+			"total":  total.Total,
 		},
 	})
 }
@@ -50,8 +50,7 @@ func SayingDetail(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code": 100,
 			"msg":  "id param is error",
-			"data": gin.H{
-			},
+			"data": gin.H{},
 		})
 		return
 	}
@@ -87,11 +86,9 @@ func SayingAction(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"code": 0,
 		"msg":  "ok",
-		"data": gin.H{
-		},
+		"data": gin.H{},
 	})
 }
-
 
 // 删除
 func SayingDel(c *gin.Context) {
@@ -106,8 +103,7 @@ func SayingDel(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code": 100,
 			"msg":  "id param is error",
-			"data": gin.H{
-			},
+			"data": gin.H{},
 		})
 		return
 	}

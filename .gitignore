@@ -5,4 +5,5 @@ vendor/**
 storage
 pid
 build/*
+build.zip
 config/env.go

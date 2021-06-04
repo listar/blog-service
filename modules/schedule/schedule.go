@@ -2,9 +2,9 @@ package schedule
 
 import (
 	"github.com/robfig/cron"
+	"os"
 	"qqfav-service/config"
 	"qqfav-service/modules/log"
-	"os"
 	"time"
 )
 

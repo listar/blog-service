@@ -38,7 +38,7 @@ func ArticleList(c *gin.Context) {
 		"msg":  "ok",
 		"data": gin.H{
 			"result": article,
-			"total": total.Total,
+			"total":  total.Total,
 		},
 	})
 }
@@ -56,8 +56,7 @@ func ArticleDetail(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code": 100,
 			"msg":  "id param is error",
-			"data": gin.H{
-			},
+			"data": gin.H{},
 		})
 		return
 	}
@@ -90,12 +89,12 @@ func ArticleAction(c *gin.Context) {
 	Intro = strings.ReplaceAll(Intro, "- ", "")
 
 	articeData := m.Article{
-		Title: json["Title"].(string),
-		Author: json["Author"].(string),
+		Title:     json["Title"].(string),
+		Author:    json["Author"].(string),
 		OuterLink: json["OuterLink"].(string),
-		Tags: json["Tags"].(string),
-		Intro: Intro,
-		Content: json["Content"].(string)}
+		Tags:      json["Tags"].(string),
+		Intro:     Intro,
+		Content:   json["Content"].(string)}
 	if json["id"].(float64) == 0 {
 		m.Model.Create(&articeData)
 	} else {
@@ -106,8 +105,7 @@ func ArticleAction(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"code": 0,
 		"msg":  "ok",
-		"data": gin.H{
-		},
+		"data": gin.H{},
 	})
 }
 
@@ -124,8 +122,7 @@ func ArticleDel(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code": 100,
 			"msg":  "id param is error",
-			"data": gin.H{
-			},
+			"data": gin.H{},
 		})
 		return
 	}

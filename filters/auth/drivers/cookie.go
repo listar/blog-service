@@ -3,8 +3,8 @@ package drivers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/sessions"
-	"qqfav-service/config"
 	"net/http"
+	"qqfav-service/config"
 )
 
 var store = sessions.NewCookieStore([]byte(config.GetEnv().AppSecret))

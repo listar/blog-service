@@ -5,11 +5,11 @@ import (
 	"github.com/gin-contrib/cache/persistence"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"qqfav-service/connections/database"
 	db "qqfav-service/connections/database/mysql"
 	"qqfav-service/filters/auth"
 	m "qqfav-service/models"
-	"net/http"
 	"qqfav-service/modules/log"
 	"time"
 )
@@ -34,9 +34,9 @@ func Account(c *gin.Context) {
 	password := json["password"].(string)
 	if len(userName) <= 0 || len(password) <= 0 {
 		c.JSON(http.StatusOK, gin.H{
-			"status":"error",
-			"type":"account",
-			"currentAuthority":"guest",
+			"status":           "error",
+			"type":             "account",
+			"currentAuthority": "guest",
 		})
 		return
 	}
@@ -44,27 +44,43 @@ func Account(c *gin.Context) {
 	m.Model.First(&user, "name = ?", userName)
 	if user.Password != password {
 		c.JSON(http.StatusOK, gin.H{
-			"status":"ok",
-			"type":"account",
-			"currentAuthority":"user",
+			"status":           "ok",
+			"type":             "account",
+			"currentAuthority": "user",
 		})
 		return
 	}
 
 	authDr, _ := c.MustGet("jwt_auth").(auth.Auth)
 	token, _ := authDr.Login(c.Request, c.Writer, map[string]interface{}{
-		"ID": user.ID,
+		"ID":   user.ID,
 		"Name": user.Name,
 	}).(string)
 
 	c.JSON(http.StatusOK, gin.H{
-		"status":"ok",
-		"type":"account",
-		"currentAuthority":"admin",
-		"token": token,
+		"status":           "ok",
+		"type":             "account",
+		"currentAuthority": "admin",
+		"token":            token,
 	})
 }
 
+func CurrentUser(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"address": "西湖区工专路 77 号",
+		"avatar": "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
+		"country": "China",
+		"email": "antdesign@alipay.com",
+		"group": "蚂蚁集团－某某某事业群－某某平台部－某某技术部－UED",
+		"name": "Serati Ma",
+		"notifyCount": 12,
+		"phone": "0752-268888888",
+		"signature": "海纳百川，有容乃大",
+		"title": "交互专家",
+		"unreadCount": 11,
+		"userid": "00000001",
+	})
+}
 
 func DBExample(c *gin.Context) {
 

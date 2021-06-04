@@ -5,8 +5,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"io"
 	"log"
-	"qqfav-service/config"
 	"os"
+	"qqfav-service/config"
 	"runtime/debug"
 	"time"
 )

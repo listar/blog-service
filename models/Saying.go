@@ -5,8 +5,8 @@ import "github.com/jinzhu/gorm"
 type Saying struct {
 	gorm.Model
 	Content string
-	Author string
-	Status    int
+	Author  string
+	Status  int
 }
 
 func (Saying) TableName() string {

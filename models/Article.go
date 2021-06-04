@@ -4,13 +4,13 @@ import "github.com/jinzhu/gorm"
 
 type Article struct {
 	gorm.Model
-	Category   int
-	Title string
-	Tags string
-	Content string
-	Author string
+	Category  int
+	Title     string
+	Tags      string
+	Content   string
+	Author    string
 	Status    int
-	Intro string
+	Intro     string
 	OuterLink string
 }
 

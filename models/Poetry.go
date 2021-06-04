@@ -4,11 +4,11 @@ import "github.com/jinzhu/gorm"
 
 type Poetry struct {
 	gorm.Model
-	Title string
+	Title   string
 	Content string
-	Author string
-	Remark string
-	Status    int
+	Author  string
+	Remark  string
+	Status  int
 }
 
 func (Poetry) TableName() string {
